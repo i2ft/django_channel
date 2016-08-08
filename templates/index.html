@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+ $( document ).ready(function() {
+     socket = new WebSocket("ws://127.0.0.1:8000/chat/");
+
+     socket.onmessage = function(e) {
+         alert(e.data);
+     }
+
+
+     $( "#b" ).click(function() {
+         alert("클릭")
+  socket.send("hello world");
+});
+    });
+    </script>
+</head>
+<body>
+<button id="b" >버튼</button>
+</body>
+</html>
